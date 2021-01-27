@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMUserSystemsTable extends Migration
+class CreateMWalletsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateMUserSystemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_user_systems', function (Blueprint $table) {
+        Schema::create('m_wallets', function (Blueprint $table) {
             $table->id();
-            $table->string('name',25);
-            $table->string('email',25)->unique();
-            $table->string('password',255);
+            $table->double('balance', 8, 2);
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('m_user_systems');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateMUserSystemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_user_systems');
+        Schema::dropIfExists('m_wallets');
     }
 }

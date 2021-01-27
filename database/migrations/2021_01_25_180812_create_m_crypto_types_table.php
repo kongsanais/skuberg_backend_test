@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMUserSystemsTable extends Migration
+class CreateMCryptoTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateMUserSystemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_user_systems', function (Blueprint $table) {
+        Schema::create('m_crypto_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name',25);
-            $table->string('email',25)->unique();
-            $table->string('password',255);
+            $table->string('type_name',25);
+            
         });
     }
 
@@ -28,6 +27,6 @@ class CreateMUserSystemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_user_systems');
+        Schema::dropIfExists('m_crypto_types');
     }
 }

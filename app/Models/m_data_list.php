@@ -16,6 +16,12 @@ class m_data_list extends Model
     public function M_insertData($name,$code,$type)
     {
         $data_list = DB::insert('insert into m_data_lists (name, code ,type) values (?, ?,?)', [$name,$code,$type]);
-        return $data_list;
+        return $data;
     }
+
+
+
+
+
+
 }
